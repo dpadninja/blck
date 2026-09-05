@@ -19,21 +19,6 @@ jobs:
       KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
 
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Check signing secrets
-        run: |
-          set -euo pipefail
-          missing=()
-          [ -n "$KS_B64" ]    || missing+=(SIGNING_KEY)
-          [ -n "$KS_PASS" ]   || missing+=(KEY_STORE_PASSWORD)
-          [ -n "$KEY_PASS" ]  || missing+=(KEY_PASSWORD)
-          [ -n "$KEY_ALIAS" ] || missing+=(ALIAS)
-          if [ "${#missing[@]}" -gt 0 ]; then
-            echo "::error::Missing env: ${missing[*]}"
-            exit 1
-          fi
-
       - name: Set up JDK 25
         uses: actions/setup-java@v4
         with:
