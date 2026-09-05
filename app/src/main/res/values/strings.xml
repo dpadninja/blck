@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">blck</string>
+    <string name="app_tagline">Covers the picture with a black window. Playback keeps running.</string>
+
+    <!-- Settings -->
+    <string name="settings_title">blck</string>
+    <string name="functionality_title">App functionality</string>
+    <string name="functionality_summary">Off means nothing works: no idle timeout and no Back + OK</string>
+
+    <string name="idle_header">Auto blackout</string>
+    <string name="idle_enabled_title">Enabled</string>
+    <string name="idle_enabled_summary">Off leaves only Back + OK: hold Back, press OK</string>
+    <string name="timeout_title">Idle time</string>
+    <string name="timeout_summary">How long the remote stays untouched before the screen goes black</string>
+    <string name="apps_title">Only in these apps</string>
+    <string name="apps_summary">The timeout only runs in the apps you pick</string>
+    <string name="apps_none">None selected</string>
+    <string name="apps_selected">%1$d picked</string>
+
+    <!-- Permissions block -->
+    <string name="permissions_header">Permissions</string>
+    <string name="overlay_title">Display over other apps</string>
+    <string name="overlay_summary">To draw blackout overlay</string>
+    <string name="accessibility_title">Accessibility service</string>
+    <string name="accessibility_title_summary">Sees remote presses in other apps</string>
+    <string name="permission_granted">Already Granted</string>
+    <string name="permission_grant">Missing</string>
+    <!-- Status -->
+    <string name="status_missing_permissions">Missing permissions — the app wont work</string>
+    <string name="status_service_down">Service is not running</string>
+    <string name="status_blackout_off">Everything is off — turn on app functionality</string>
+    <string name="status_idle_off">Idle timeout is off — only Back + OK blacks out</string>
+    <string name="status_no_apps">Pick at least one app, or use Back + OK</string>
+    <string name="status_ready">Ready: the screen goes black after %1$s of idle</string>
+    <string name="diagnostics">Caught since launch: %1$d remote presses, %2$d interface events · foreground: %3$s</string>
+    <string name="diagnostics_unknown">unknown</string>
+
+    <!-- App picker -->
+    <string name="picker_title">Blackout in these apps</string>
+    <string name="picker_summary">The idle timeout only runs in the apps you pick. Back + OK works everywhere regardless.</string>
+    <string name="picker_empty_hint">Nothing picked yet — the idle timeout will not fire anywhere.</string>
+    <string name="picker_other_apps">Other apps</string>
+    <string name="picker_loading">Reading the app list…</string>
+    <string name="picker_done">Done</string>
+
+    <!-- Values -->
+    <string name="value_on">On</string>
+    <string name="value_off">Off</string>
+    <string name="value_yes">Yes</string>
+    <string name="value_no">No</string>
+    <string name="timeout_seconds">%1$d sec</string>
+    <string name="timeout_minutes">%1$d min</string>
+
+    <!-- Toasts -->
+    <string name="toast_no_accessibility_screen">No accessibility settings screen on this device</string>
+
+    <!-- System -->
+    <string name="accessibility_description">Watches remote presses to tell when you are idle. Screen content is never read and nothing leaves the device.</string>
+    <string name="accessibility_summary">Idle detector for blck</string>
+    <string name="notification_channel">blck service</string>
+    <string name="notification_text">Watching for idle</string>
+</resources>
