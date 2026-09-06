@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="8mm"
-   height="4.6433296mm"
-   viewBox="0 0 8 4.6433296"
+   width="76.830994mm"
+   height="44.593918mm"
+   viewBox="0 0 76.830994 44.593918"
    version="1.1"
    id="svg1"
    xmlns="http://www.w3.org/2000/svg"
@@ -13,14 +13,14 @@
      id="defs1" />
   <g
      id="layer1"
-     transform="translate(-16.385247,-48.834792)">
+     transform="translate(-48.947914,-29.368748)">
     <rect
-       style="font-variation-settings:'wght' 509;fill:#000000;fill-opacity:1;stroke:#292929;stroke-width:0.327603;stroke-dasharray:none;stroke-opacity:1"
+       style="font-variation-settings:'wght' 509;fill:#000000;fill-opacity:1;stroke:#292929;stroke-width:3.14626;stroke-dasharray:none;stroke-opacity:1"
        id="rect4"
-       width="7.6723976"
-       height="4.3157234"
-       x="16.549047"
-       y="-53.314316"
+       width="73.684731"
+       height="41.447659"
+       x="50.521046"
+       y="-72.389534"
        transform="scale(1,-1)" />
   </g>
 </svg>
