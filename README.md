@@ -1,5 +1,5 @@
 <h2 align="center">
-  <img height="150" src="logo.svg" />
+  <img height="120" src="logo.svg" />
   <br>
     blck: turns your TV screen off without stopping whatever is playing
 </h2>
