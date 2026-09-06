@@ -1,6 +1,8 @@
-# blck
-
-**Turns your TV screen off without stopping whatever is playing.**
+<h2 align="center">
+  <img height="100" src="logo.svg" />
+  <br>
+    blck: turns your TV screen off without stopping whatever is playing
+</h2>
 
 You put music on in the evening and the TV keeps demanding attention — album art,
 scrolling lists, a bright panel lighting up the whole room. Google TV gives you no
