@@ -38,7 +38,7 @@
         android:name=".App"
         android:allowBackup="true"
         android:banner="@drawable/banner"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@mipmap/ic_launcher_round"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.Blck">
