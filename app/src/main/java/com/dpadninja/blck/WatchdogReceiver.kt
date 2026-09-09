@@ -10,7 +10,7 @@ import android.os.SystemClock
 
 class WatchdogReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent?) {
-        ensureServiceRunning(context)
+        if (!BlackoutService.running.value) ensureServiceRunning(context)
         schedule(context)
     }
 

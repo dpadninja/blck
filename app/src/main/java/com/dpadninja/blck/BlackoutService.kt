@@ -64,7 +64,7 @@ class BlackoutService : Service() {
 
                 Intent.ACTION_SCREEN_ON -> {
                     screenOn = true
-                    resetIdleTimer()
+                    resetIdleTimer("on screen on")
                 }
 
                 Intent.ACTION_CLOSE_SYSTEM_DIALOGS -> {
@@ -94,7 +94,8 @@ class BlackoutService : Service() {
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         startForegroundSafely()
 
-        if (!started) {
+        val firstStart = !started
+        if (firstStart) {
             started = true
             @Suppress("DEPRECATION")
             registerReceiver(
@@ -113,7 +114,9 @@ class BlackoutService : Service() {
 
         when (intent?.action) {
             ACTION_HIDE -> dismissAndReset("cmd ACTION_HIDE")
-            else -> resetIdleTimer()
+            // The watchdog and START_STICKY re-deliver a start command every minute;
+            // resetting the idle timer here would keep it from ever firing.
+            else -> if (firstStart) resetIdleTimer("on first start command")
         }
         return START_STICKY
     }
@@ -137,7 +140,7 @@ class BlackoutService : Service() {
                         Log.w("blck-dismiss", "dpad key first time $DISMISS_GRACE_MS - ignoring")
                     }
                 overlay.isShowing -> Unit
-                else -> resetIdleTimer()
+                else -> resetIdleTimer("on observe input")
             }
         }
     }
@@ -145,7 +148,7 @@ class BlackoutService : Service() {
     private fun observeSettings() = scope.launch {
         AppSettings.revision.drop(1).collect {
             if (!AppSettings.enabled) hideOverlay()
-            resetIdleTimer()
+            resetIdleTimer("on observe settings")
         }
     }
 
@@ -157,22 +160,28 @@ class BlackoutService : Service() {
             packageAllowed()
 
     private fun packageAllowed(): Boolean {
-        val allowed = AppSettings.allowedPackages
-        if (allowed.isEmpty()) return false
-        return InputBus.foregroundPackage.value in allowed
+        val packages = AppSettings.allowedPackages
+        if (packages.isEmpty()) return false
+        val activePackage = InputBus.foregroundPackage.value
+        val allowed = activePackage in packages
+        Log.d("blackout-service", "packageAllowed: $activePackage $allowed")
+        return allowed
     }
 
-    private fun resetIdleTimer() {
+    private fun resetIdleTimer(reason: String) {
+        Log.d("blckout-service", "reset timer, reason = $reason")
         idleJob?.cancel()
         if (!canBlackout()) return
         val timeoutMs = AppSettings.idleTimeoutSec * 1000L
         idleJob = scope.launch {
+            Log.d("blckout-service", "set timer for ${timeoutMs.milliseconds} msec")
             delay(timeoutMs.milliseconds)
             showOverlay()
         }
     }
 
     private fun showOverlay(force: Boolean = false) {
+        Log.d("blckout-service", "show overlay")
         if (!force && !canBlackout()) return
         if (!Settings.canDrawOverlays(this)) return
 
@@ -183,17 +192,16 @@ class BlackoutService : Service() {
     }
 
     private fun hideOverlay() {
+        Log.d("blckout-service", "hide overlay")
         overlay.hide()
         overlayVisible.value = false
     }
 
     private fun dismissAndReset(source: String) {
-        Log.w("blck-dismiss", "hide overlay: $source")
+        Log.w("blckout-service", "hide overlay: $source")
         hideOverlay()
-        resetIdleTimer()
+        resetIdleTimer("on hide overlay")
     }
-
-    // --- живучесть ----------------------------------------------------------
 
     override fun onTaskRemoved(rootIntent: Intent?) {
         ensureServiceRunning(this)
