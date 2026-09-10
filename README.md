@@ -1,14 +1,15 @@
 <h2 align="center">
   <img height="120" src="logo.svg" />
   <br>
-    blck — turns your TV screen off without stopping whatever is playing
+    turns off the screen on the TV and keeps the sound playing
 </h2>
 
-Listening to something on a TV usually means looking at it too. Screensavers and sleep timers kill playback along with the picture.
-`blck` simply draws a black overlay over the screen. On OLED and Mini LED TVs, this looks the same as turning the screen off.
-The app underneath keeps running, the sound keeps playing, any key brings the picture back.
-
 <img src="screenshot.png" />
+
+## Use cases
+- Listen to music, podcasts or radio with the screen dark
+- Keep YouTube playing when you only need the sound
+- Avoid OLED burn-in on static images
 
 ## Features
 - Press `Back` + `OK` to black out the screen
