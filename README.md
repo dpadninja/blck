@@ -40,3 +40,8 @@ No internet permission. No data collection. No tracking.
 - Accessibility service: to detect the `Back` + `OK` shortcut and remote activity for the idle timer (key presses are never stored)
 - Query all packages: to list installed apps so you can choose where auto blackout works
 - Foreground service: to keep the app running in the background
+
+## Inspired by these apps
+- [OLED Black Screen](https://apps.apple.com/us/app/oled-black-screen/id6743547581) - tvOS
+- [FakeStandBy](https://github.com/JonasBernard/FakeStandby) - Android
+- [Extinguish](https://github.com/Moderpach/Extinguish) - Android
