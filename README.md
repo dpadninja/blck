@@ -45,3 +45,6 @@ No internet permission. No data collection. No tracking.
 - [OLED Black Screen](https://apps.apple.com/us/app/oled-black-screen/id6743547581) - tvOS
 - [FakeStandBy](https://github.com/JonasBernard/FakeStandby) - Android
 - [Extinguish](https://github.com/Moderpach/Extinguish) - Android
+
+## License
+MIT
